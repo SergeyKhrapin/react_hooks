@@ -2,9 +2,10 @@ import {useState, useEffect, useRef} from 'react'
 import RowWrapper from '../utils/RowWrapper'
 import HookTitle from '../utils/HookTitle'
 
-function UseRefHook() {
+function ShowPreviousValue() {
     let [value, setValue] = useState('')
-    let previousValue = useRef('')
+    let previousValue = useRef('') // return an objet {current: ''}
+    // previousValue.current doesn't become '' after each rerenderings, because useRef gives us the same ref object on every render
 
     function handleChange(e) {
         setValue(e.target.value)
@@ -24,4 +25,4 @@ function UseRefHook() {
     )
 }
 
-export default UseRefHook
+export default ShowPreviousValue

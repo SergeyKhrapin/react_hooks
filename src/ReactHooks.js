@@ -1,11 +1,11 @@
 import MainContainer from './MainContainer'
-import UseRefHook from './hooks/UseRefHook'
+import ShowPreviousValue from './hooks/ShowPreviousValue'
 
 function ReactHooks() {
     return (
-    <MainContainer>
-        <UseRefHook />
-    </MainContainer>
+        <MainContainer>
+            <ShowPreviousValue />
+        </MainContainer>
     )
 }
 
