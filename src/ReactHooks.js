@@ -1,14 +1,11 @@
 import React from 'react'
+import MainContainer from './MainContainer'
 
 function ReactHooks() {
   return (
-    <div className="hooks-container container">
-      <div className="row">
-        <header className="hooks-header">
-          <h1>React Hooks</h1>
-        </header>
-      </div>
-    </div>
+    <MainContainer>
+      
+    </MainContainer>
   )
 }
 
