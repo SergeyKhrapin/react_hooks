@@ -1,12 +1,12 @@
-import React from 'react'
 import MainContainer from './MainContainer'
+import UseRefHook from './hooks/UseRefHook'
 
 function ReactHooks() {
-  return (
+    return (
     <MainContainer>
-      
+        <UseRefHook />
     </MainContainer>
-  )
+    )
 }
 
 export default ReactHooks
