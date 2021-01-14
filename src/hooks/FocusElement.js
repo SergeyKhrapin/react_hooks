@@ -13,8 +13,10 @@ function FocusElement() {
     return (
         <RowWrapper className="hook-useRef">
             <HookTitle title="To get an access to DOM element" tag="h4"/>
-            <input ref={input} onChange={e => setValue(e.target .value)} value={value} />
-            <button onClick={handleButtonClick}>Focus</button>
+            <div className='d-flex'>
+                <input ref={input} onChange={e => setValue(e.target .value)} value={value} />
+                <button className="btn-primary" onClick={handleButtonClick}>Focus</button>
+            </div>
         </RowWrapper>
     )
 }
