@@ -1,5 +1,5 @@
 function RowWrapper(props) {
-    const className = `row ${props.className}`
+    const className = `row mb-4 ${props.className}`
 
     return (
         <div className={className}>

@@ -17,7 +17,7 @@ function ShowPreviousValue() {
     
     return (
         <RowWrapper className="hook-useRef">
-            <HookTitle title="useRef()" tag="h1"/>
+            <HookTitle tag="h1" options={{className: 'mb-4 text-primary'}} title="useRef()"/>
             <HookTitle title="To store a variable" tag="h4"/>
             <p>A previous value - {previousValue.current}</p>
             <input onChange={handleChange} value={value} />
