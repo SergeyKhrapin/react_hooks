@@ -1,6 +1,6 @@
 import {useState, useRef} from 'react'
-import RowWrapper from '../utils/RowWrapper'
-import HookTitle from '../utils/HookTitle'
+import RowWrapper from '../../utils/RowWrapper'
+import HookTitle from '../../utils/HookTitle'
 
 function FocusElement() {
     let [value, setValue] = useState('')

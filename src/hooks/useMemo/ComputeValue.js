@@ -1,9 +1,9 @@
 import {useState, useMemo} from 'react'
-import RowWrapper from '../utils/RowWrapper'
-import HookTitle from '../utils/HookTitle'
+import RowWrapper from '../../utils/RowWrapper'
+import HookTitle from '../../utils/HookTitle'
 
 function computeValue(num) {
-    console.log('computeValue')
+    // console.log('computeValue')
     let i = 0
     while (i < 1000000000) {
         i++
@@ -19,7 +19,7 @@ function ComputeValue() {
         color: isColored ? 'crimson' : 'black'
     }
 
-    console.log('render')
+    // console.log('render')
     
     // Pass the array [value] as a second parameter to useMemo - a complex computeValue function will be executed only if value is changed
     const computedValue = useMemo(() => computeValue(value), [value])
