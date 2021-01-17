@@ -1,8 +1,8 @@
 import {useContext} from 'react'
-import {ShowAlertContext} from './ShowAlert'
+import {AlertContext} from './AlertContext'
 
 export default function AlertMessage() {
-    const context = useContext(ShowAlertContext)
+    const {showAlert} = useContext(AlertContext)
 
-    return context && <div className="alert alert-danger">Alert message</div>
+    return showAlert && <div className="alert alert-danger">Alert message</div>
 }

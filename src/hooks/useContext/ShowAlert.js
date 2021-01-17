@@ -3,19 +3,16 @@ import RowWrapper from '../../utils/RowWrapper'
 import HookTitle from '../../utils/HookTitle'
 import AlertMessage from './AlertMessage'
 import MainSection from './MainSection'
-
-export const ShowAlertContext = React.createContext()
+import {AlertContextProvider} from './AlertContext'
 
 export default function ShowAlert() {
-    const [showAlert, setAlert] = useState(false)
-
     return (
         <RowWrapper className="hook-useContext">
             <HookTitle tag="h1" options={{className: 'text-primary'}} title="useContext()" />
-            <ShowAlertContext.Provider value={showAlert}>
+            <AlertContextProvider>
                 <AlertMessage />
-                <MainSection showAlert={() => setAlert(prevValue => !prevValue)} />
-            </ShowAlertContext.Provider>
+                <MainSection />
+            </AlertContextProvider>
         </RowWrapper>
     )
 }
