@@ -1,6 +1,4 @@
 import {useState, useMemo} from 'react'
-import RowWrapper from '../../utils/RowWrapper'
-import HookTitle from '../../utils/HookTitle'
 
 function computeValue(num) {
     // console.log('computeValue')
@@ -25,17 +23,15 @@ function ComputeValue() {
     const computedValue = useMemo(() => computeValue(value), [value])
     
     return (
-        <RowWrapper className="hook-useMemo">
-            <HookTitle tag="h1" options={{className: 'text-primary'}} title="useMemo()" />
+        <>
             <p style={styles}>Computed value - {computedValue}</p>
             <div className='d-flex'>
-                <button className="btn-success" onClick={() => setValue(prevValue => ++prevValue)}>Increase +</button>
-                <button className="btn-danger" onClick={() => setValue(prevValue => --prevValue)}>Decrease -</button>
-                <button className="btn-warning" onClick={() => setColor(prevValue => !prevValue)}>Change color</button>
+                <button className="btn btn-success me-2" onClick={() => setValue(prevValue => ++prevValue)}>Increase +</button>
+                <button className="btn btn-danger me-2" onClick={() => setValue(prevValue => --prevValue)}>Decrease -</button>
+                <button className="btn btn-warning" onClick={() => setColor(prevValue => !prevValue)}>Change color</button>
             </div>
-        </RowWrapper>
+        </>
     )
 }
 
 export default ComputeValue
-

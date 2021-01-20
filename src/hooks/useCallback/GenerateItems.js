@@ -1,6 +1,4 @@
 import {useState, useCallback} from 'react'
-import RowWrapper from '../../utils/RowWrapper'
-import HookTitle from '../../utils/HookTitle'
 import ItemsList from './ItemsList'
 
 function GenerateItems() {
@@ -17,15 +15,14 @@ function GenerateItems() {
     }, [counter])
     
     return (
-        <RowWrapper className="hook-useCallback">
-            <HookTitle tag="h1" options={{className: 'text-primary'}} title="useCallback()" />
+        <>
             <p style={styles}>Items counter - {counter}</p>
             <div className='d-flex'>
-                <button className="btn-success" onClick={() => setCounter(prevValue => ++prevValue)}>Increase +</button>
-                <button className="btn-warning" onClick={() => setColor(prevValue => !prevValue)}>Change color</button>
+                <button className="btn btn-success me-2" onClick={() => setCounter(prevValue => ++prevValue)}>Increase +</button>
+                <button className="btn btn-warning" onClick={() => setColor(prevValue => !prevValue)}>Change color</button>
             </div>
             <ItemsList getItems={generateItemsFromAPI} />
-        </RowWrapper>
+        </>
     )
 }
 

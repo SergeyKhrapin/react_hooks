@@ -8,11 +8,11 @@ import ShowAlert from './hooks/useContext/ShowAlert'
 function ReactHooks() {
     return (
         <MainContainer>
-            <ShowPreviousValue />
-            <FocusElement />
-            <ComputeValue />
-            <GenerateItems />
-            <ShowAlert />
+            <ShowPreviousValue hookName='useRef' />
+            <FocusElement hookName='useRef' />
+            <ComputeValue hookName='useMemo' />
+            <GenerateItems hookName='useCallback' />
+            <ShowAlert hookName='useContext' />
         </MainContainer>
     )
 }

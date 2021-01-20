@@ -1,6 +1,4 @@
 import {useState, useRef} from 'react'
-import RowWrapper from '../../utils/RowWrapper'
-import HookTitle from '../../utils/HookTitle'
 
 function FocusElement() {
     let [value, setValue] = useState('')
@@ -11,13 +9,13 @@ function FocusElement() {
     }
     
     return (
-        <RowWrapper className="hook-useRef">
-            <HookTitle title="To get an access to DOM element" tag="h4"/>
+        <>
+            <h4>To get an access to DOM element</h4>
             <div className='d-flex'>
                 <input ref={input} onChange={e => setValue(e.target .value)} value={value} />
-                <button className="btn-primary" onClick={handleButtonClick}>Focus</button>
+                <button className="btn btn-primary ms-2" onClick={handleButtonClick}>Focus</button>
             </div>
-        </RowWrapper>
+        </>
     )
 }
 

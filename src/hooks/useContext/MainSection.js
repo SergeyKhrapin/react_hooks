@@ -5,7 +5,7 @@ export default function MainSection() {
     const {showAlert, setAlert} = useContext(AlertContext)
 
     return (
-        <button onClick={() => setAlert(prevValue => !prevValue)} className="col-3 btn-success">
+        <button onClick={() => setAlert(prevValue => !prevValue)} className="col-3 btn btn-success">
             {showAlert ? 'Hide alert' : 'Show alert'}
         </button>
     )

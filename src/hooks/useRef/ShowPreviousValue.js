@@ -1,6 +1,4 @@
 import {useState, useEffect, useRef} from 'react'
-import RowWrapper from '../../utils/RowWrapper'
-import HookTitle from '../../utils/HookTitle'
 
 function ShowPreviousValue() {
     let [value, setValue] = useState('')
@@ -16,12 +14,11 @@ function ShowPreviousValue() {
     })
     
     return (
-        <RowWrapper className="hook-useRef">
-            <HookTitle tag="h1" options={{className: 'mb-4 text-primary'}} title="useRef()"/>
-            <HookTitle title="To store a variable" tag="h4"/>
+        <>
+            <h4>To store a variable</h4>
             <p>A previous value - {previousValue.current}</p>
             <input onChange={handleChange} value={value} />
-        </RowWrapper>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-function MainContainer(props) {
+function MainContainer({children}) {
     return (
         <div className="hooks-container container">
             <div className="row">
@@ -6,7 +6,18 @@ function MainContainer(props) {
                     <h1>React Hooks</h1>
                 </header>
             </div>
-            {props.children}
+            {
+                children.map(el => {
+                    const hookName = el.props.hookName
+                    const className = `row mb-4 hook-${hookName}`
+                    return (
+                        <div className={className}>
+                            <h1 className="text-primary">{hookName}</h1>
+                            {el}
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }
