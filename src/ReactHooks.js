@@ -4,6 +4,7 @@ import FocusElement from './hooks/useRef/FocusElement'
 import ComputeValue from './hooks/useMemo/ComputeValue'
 import GenerateItems from './hooks/useCallback/GenerateItems'
 import ShowAlert from './hooks/useContext/ShowAlert'
+import Counter from './hooks/useReducer/Counter'
 
 function ReactHooks() {
     return (
@@ -13,6 +14,7 @@ function ReactHooks() {
             <ComputeValue hookName='useMemo' />
             <GenerateItems hookName='useCallback' />
             <ShowAlert hookName='useContext' />
+            <Counter hookName='useReducer' />
         </MainContainer>
     )
 }
