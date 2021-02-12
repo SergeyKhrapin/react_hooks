@@ -1,7 +1,6 @@
 import {useState, useMemo} from 'react'
 
 function computeValue(num) {
-    // console.log('computeValue')
     let i = 0
     while (i < 1000000000) {
         i++
@@ -16,8 +15,6 @@ function ComputeValue() {
     const styles = {
         color: isColored ? 'crimson' : 'black'
     }
-
-    // console.log('render')
     
     // Pass the array [value] as a second parameter to useMemo - a complex computeValue function will be executed only if value is changed
     const computedValue = useMemo(() => computeValue(value), [value])
