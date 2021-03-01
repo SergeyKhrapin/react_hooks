@@ -5,6 +5,7 @@ import ComputeValue from './hooks/useMemo/ComputeValue'
 import GenerateItems from './hooks/useCallback/GenerateItems'
 import ShowAlert from './hooks/useContext/ShowAlert'
 import Counter from './hooks/useReducer/Counter'
+import Input from './hooks/customHooks/Input'
 
 function ReactHooks() {
     return (
@@ -15,6 +16,8 @@ function ReactHooks() {
             <GenerateItems hookName='useCallback' />
             <ShowAlert hookName='useContext' />
             <Counter hookName='useReducer' />
+            <Counter hookName='useReducer' />
+            <Input hookName='Custom Hook' />
         </MainContainer>
     )
 }
