@@ -11,34 +11,38 @@ function useLogger(value) {
 function useInput(initialValue) {
     const [value, setValue] = useState(initialValue)
 
-    function onChange(e) {
-        setValue(e.target.value)
-    }
+    const onChange = e => setValue(e.target.value)
+
+    const clear = () => setValue('')
 
     return {
-        value, onChange
+        input: { value, onChange },
+        value,
+        clear
     }
 }
 
 function Input() {
-    const firstNameInput = useInput('')
-    const lastNameInput = useInput('')
+    const { input: firstNameInput, value: firstNameValue, clear: firstNameClear } = useInput('')
+    const { input: lastNameInput, value: lastNameValue, clear: lastNameClear } = useInput('')
 
-    const firstName = firstNameInput.value
-    const lastName = lastNameInput.value
-
-    useLogger(firstName)
-    useLogger(lastName)
+    useLogger(firstNameValue)
+    useLogger(lastNameValue)
 
     return (
         <>
             <div class="input-group">
-                <span class="input-group-text">First and last name</span>
+                <span class="input-group-text">First name</span>
                 <input type="text" className="form-control" {...firstNameInput} />
+                <button className="btn btn-warning" onClick={firstNameClear}>Clear</button>
+            </div>
+            <div class="input-group">
+                <span class="input-group-text">Last name</span>
                 <input type="text" className="form-control" {...lastNameInput} />
+                <button className="btn btn-warning" onClick={lastNameClear}>Clear</button>
             </div>
             <div className="alert alert-primary mt-3" role="alert">
-                {firstName} {lastName}
+                {firstNameValue} {lastNameValue}
             </div>
         </>
     )
