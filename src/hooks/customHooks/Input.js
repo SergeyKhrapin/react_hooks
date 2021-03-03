@@ -31,13 +31,13 @@ function Input() {
 
     return (
         <>
-            <div class="input-group">
-                <span class="input-group-text">First name</span>
+            <div className="input-group">
+                <span className="input-group-text">First name</span>
                 <input type="text" className="form-control" {...firstNameInput} />
                 <button className="btn btn-warning" onClick={firstNameClear}>Clear</button>
             </div>
-            <div class="input-group">
-                <span class="input-group-text">Last name</span>
+            <div className="input-group">
+                <span className="input-group-text">Last name</span>
                 <input type="text" className="form-control" {...lastNameInput} />
                 <button className="btn btn-warning" onClick={lastNameClear}>Clear</button>
             </div>

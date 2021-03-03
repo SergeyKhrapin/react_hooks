@@ -11,8 +11,8 @@ function MainContainer({children}) {
                     const hookName = el.props.hookName
                     const className = `row mb-4 hook-${hookName}`
                     return (
-                        <div className={className}>
-                            <h1 className="text-primary">{hookName}</h1>
+                        <div className={className} key={hookName}>
+                            <h2 className="text-primary">{hookName}</h2>
                             {el}
                         </div>
                     )
