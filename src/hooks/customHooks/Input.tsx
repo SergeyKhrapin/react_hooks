@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 
 // Custom hook 1
-function useLogger(value) {
+function useLogger(value: string) {
     React.useEffect(() => {
         console.log(value)
     }, [value])
 }
 
 // Custom hook 2
-function useInput(initialValue) {
+function useInput(initialValue: string) {
     const [value, setValue] = useState(initialValue)
 
     const onChange = e => setValue(e.target.value)
