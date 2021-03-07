@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, FC } from 'react'
 import { HookName } from '../../types/types'
 
-function FocusElement(props: HookName) {
+const FocusElement: FC<HookName> = () => {
     let [ value, setValue ] = useState<string>('')
     let input = useRef<HTMLInputElement>(null!)
 

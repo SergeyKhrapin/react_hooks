@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, FC, ChangeEvent } from 'react'
 import { HookName } from '../../types/types'
 
 // Custom hook 1
@@ -23,7 +23,7 @@ function useInput(initialValue: string) {
     }
 }
 
-function Input(props: HookName) {
+const Input: FC<HookName> = () => {
     const { input: firstNameInput, value: firstNameValue, clear: firstNameClear } = useInput('')
     const { input: lastNameInput, value: lastNameValue, clear: lastNameClear } = useInput('')
 

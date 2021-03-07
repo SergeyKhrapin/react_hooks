@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 interface Context {
     showAlert?: boolean,
@@ -11,14 +11,14 @@ const defaultValue: Context = {
 
 export const AlertContext = React.createContext(defaultValue)
 
-type PROPS = { children: object }
+type PROPS = { children: JSX.Element | JSX.Element[] }
 
-export function AlertContextProvider(props: PROPS) {
-    const [showAlert, setAlert] = useState<boolean>(false)
+export function AlertContextProvider({ children }: PROPS) {
+    const [ showAlert, setAlert ] = useState<boolean>(false)
 
     return (
         <AlertContext.Provider value={{ showAlert, setAlert }}>
-            { props.children }
+            { children }
         </AlertContext.Provider>
     )
 }

@@ -1,10 +1,10 @@
-import {useState, useCallback} from 'react'
+import {useState, useCallback, FC} from 'react'
 import ItemsList from './ItemsList'
 import { HookName } from '../../types/types'
 
-function GenerateItems(props: HookName) {
-    const [counter, setCounter] = useState<number>(0)
-    const [isColored, setColor] = useState<boolean>(false)
+const GenerateItems: FC<HookName> = () => {
+    const [ counter, setCounter ] = useState<number>(0)
+    const [ isColored, setColor ] = useState<boolean>(false)
 
     const styles = {
         color: isColored ? 'blue' : 'black'

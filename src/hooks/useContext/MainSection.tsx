@@ -1,12 +1,12 @@
-import {useContext} from 'react'
-import {AlertContext} from './AlertContext'
+import { useContext } from 'react'
+import { AlertContext } from './AlertContext'
 
 export default function MainSection() {
-    const {showAlert, setAlert} = useContext(AlertContext)
+    const { showAlert, setAlert } = useContext(AlertContext)
 
     return (
         <button onClick={() => setAlert(prevValue => !prevValue)} className="col-3 btn btn-success">
-            {showAlert ? 'Hide alert' : 'Show alert'}
+            { showAlert ? 'Hide alert' : 'Show alert' }
         </button>
     )
 }

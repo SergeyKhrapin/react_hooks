@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, FC } from 'react'
 import { Action, HookName } from '../../types/types'
 
 const initialState = { number: 0 }
@@ -16,7 +16,7 @@ function reducer(state: State, action: Action) {
     }
 }
 
-function Counter(props: HookName) {
+const Counter: FC<HookName> = () => {
     const [ counter, dispatch ] = useReducer(reducer, initialState)
 
     return (

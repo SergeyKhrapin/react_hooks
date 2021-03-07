@@ -1,4 +1,4 @@
-import {useState, useMemo} from 'react'
+import { useState, useMemo, FC } from 'react'
 import { HookName } from '../../types/types'
 
 function computeValue(num: number) {
@@ -9,7 +9,7 @@ function computeValue(num: number) {
     return num * 2
 }
 
-function ComputeValue(props: HookName) {
+const ComputeValue: FC<HookName> = () => {
     const [ value, setValue ] = useState<number>(1)
     const [ isColored, setColor ] = useState<boolean>(false)
 

@@ -1,4 +1,4 @@
-import React, { useReducer, MouseEventHandler } from 'react'
+import React, { useReducer, FC, MouseEventHandler } from 'react'
 import { Action, HookName } from '../../types/types'
 
 function useToggle() {
@@ -24,7 +24,7 @@ function useToggle() {
     }
 }
 
-function Toggle(props: HookName) {
+const Toggle: FC<HookName> = () => {
     return (
         <div className="row">
             <div className="col-3">

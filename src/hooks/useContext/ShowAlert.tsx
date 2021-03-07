@@ -1,9 +1,10 @@
+import React, { FC } from 'react'
 import AlertMessage from './AlertMessage'
 import MainSection from './MainSection'
 import {AlertContextProvider} from './AlertContext'
 import { HookName } from '../../types/types'
 
-export default function ShowAlert(props: HookName) {
+const ShowAlert: FC<HookName> = () => {
     return (
         <AlertContextProvider>
             <AlertMessage />
@@ -11,3 +12,5 @@ export default function ShowAlert(props: HookName) {
         </AlertContextProvider>
     )
 }
+
+export default ShowAlert
