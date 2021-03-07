@@ -1,9 +1,10 @@
 import {useState, useCallback} from 'react'
 import ItemsList from './ItemsList'
+import { HookName } from '../../types/types'
 
-function GenerateItems() {
-    const [counter, setCounter] = useState(0)
-    const [isColored, setColor] = useState(false)
+function GenerateItems(props: HookName) {
+    const [counter, setCounter] = useState<number>(0)
+    const [isColored, setColor] = useState<boolean>(false)
 
     const styles = {
         color: isColored ? 'blue' : 'black'

@@ -1,8 +1,9 @@
-import {useState, useRef} from 'react'
+import { useState, useRef } from 'react'
+import { HookName } from '../../types/types'
 
-function FocusElement() {
-    let [value, setValue] = useState('')
-    let input = useRef(null)
+function FocusElement(props: HookName) {
+    let [ value, setValue ] = useState<string>('')
+    let input = useRef<HTMLInputElement>(null!)
 
     function handleButtonClick() {
         input.current.focus()

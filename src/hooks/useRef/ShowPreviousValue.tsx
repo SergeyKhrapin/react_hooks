@@ -1,11 +1,12 @@
-import {useState, useEffect, useRef} from 'react'
+import { useState, useEffect, useRef, ChangeEvent } from 'react'
+import { HookName } from '../../types/types' 
 
-function ShowPreviousValue() {
-    let [value, setValue] = useState('')
-    let previousValue = useRef('') // return an objet {current: ''}
+function ShowPreviousValue(props: HookName) {
+    let [ value, setValue ] = useState<string>('')
+    let previousValue = useRef<string>('') // return an objet {current: ''}
     // previousValue.current doesn't become '' after each rerenderings, because useRef gives us the same ref object on every render
 
-    function handleChange(e) {
+    function handleChange(e: ChangeEvent<HTMLInputElement>) {
         setValue(e.target.value)
     }
 

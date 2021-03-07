@@ -1,18 +1,20 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, MouseEventHandler } from 'react'
+import { Action, HookName } from '../../types/types'
 
 function useToggle() {
     const TOGGLE = 'TOGGLE'
+    const initialState = { toggle: false }
 
-    const reducer = (state, action) => {
+    type State = typeof initialState
+
+    const reducer = (state: State, action: Action) => {
         if (action.type === TOGGLE) {
             return {...state, toggle: !state.toggle}
         }
         return state
     }
 
-    const initialState = {toggle: false}
-
-    const [stateButton, dispatch] = useReducer(reducer, initialState)
+    const [ stateButton, dispatch ] = useReducer(reducer, initialState)
 
     return {
         toggle: stateButton.toggle,
@@ -22,7 +24,7 @@ function useToggle() {
     }
 }
 
-function Toggle() {
+function Toggle(props: HookName) {
     return (
         <div className="row">
             <div className="col-3">
@@ -35,7 +37,12 @@ function Toggle() {
     )
 }
 
-function Button({ toggle, setToggle }) {
+interface Props {
+    toggle: boolean,
+    setToggle: MouseEventHandler<HTMLButtonElement>
+}
+
+function Button({ toggle, setToggle }: Props) {
     return (
         <button className={`btn btn-${toggle ? 'success' : 'secondary'}`} onClick={setToggle}>
             Toggle is {toggle ? 'on' : 'off'}

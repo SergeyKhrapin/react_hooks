@@ -1,15 +1,18 @@
 import React, { Component, PureComponent } from 'react'
 
-export class Parent extends Component {
-    constructor() {
-        super()
+type Props = {}
+type State = { value: number }
+
+export class Parent extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
         this.state = { value: 0 }
     }
 
     render() {
         return (
             <>
-                <div className="row mb-4">
+                <div className="row mb-4 mt-5">
                     <h2 className="text-primary">Class component - PureComponent</h2>
                 </div>
                 <div className="row mt-4">
@@ -27,7 +30,11 @@ export class Parent extends Component {
     }
 }
 
-class ChildWithPrimitiveProps extends PureComponent {
+type PrimitiveProps = {
+    [key: string]: string | number
+}
+
+class ChildWithPrimitiveProps extends PureComponent<PrimitiveProps> {
     render() {
         return (
             <div className="row mt-4">
@@ -39,7 +46,11 @@ class ChildWithPrimitiveProps extends PureComponent {
     }
 }
 
-class ChildWithNonPrimitiveProps extends Component {
+type NonPrimitiveProps = {
+    [key: string]: {} | [] | (() => void)
+}
+
+class ChildWithNonPrimitiveProps extends Component<NonPrimitiveProps> {
     shouldComponentUpdate() {
         return false
     }

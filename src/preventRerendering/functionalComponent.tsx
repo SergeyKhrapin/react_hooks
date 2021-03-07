@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, memo } from 'react'
 
 export const Parent = () => {
-const [value, setValue] = useState(0)
+const [ value, setValue ] = useState<number>(0)
 
     // Primitive value
     const string = 'String'
@@ -34,7 +34,11 @@ const [value, setValue] = useState(0)
     )
 }
 
-const ChildWithPrimitiveProps = memo(() => {
+type primitiveProps = {
+    primitiveProp: string | number
+}
+
+const ChildWithPrimitiveProps = memo((props: primitiveProps) => {
     return (
         <div className="row mt-4">
             <div className="col-12 border border-2 p-3">
@@ -44,7 +48,12 @@ const ChildWithPrimitiveProps = memo(() => {
     )
 })
 
-const ChildWithNonPrimitiveProps = memo(() => {
+type nonPrimitiveProps = {
+    nonPrimitiveProp1: {},
+    nonPrimitiveProp2: () => void
+}
+
+const ChildWithNonPrimitiveProps = memo((props: nonPrimitiveProps) => {
     return (
         <div className="row mt-4">
             <div className="col-12 border border-2 p-3">

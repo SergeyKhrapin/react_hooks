@@ -1,4 +1,10 @@
-function MainContainer({children}) {
+import React, { ReactNode, ReactNodeArray } from 'react'
+
+type Props = {
+    children: ReactNodeArray
+}
+
+const MainContainer = ({ children }: Props) => {
     return (
         <div className="hooks-container container">
             <div className="row">
@@ -7,13 +13,14 @@ function MainContainer({children}) {
                 </header>
             </div>
             {
-                children.map(el => {
-                    const hookName = el.props.hookName
+                // TODO: fix any type
+                children.map((el: any) => {    
+                    const hookName = el?.props.hookName
                     const className = `row mb-4 hook-${hookName}`
                     return (
                         <div className={className} key={hookName}>
                             <h2 className="text-primary">{hookName}</h2>
-                            {el}
+                            { el }
                         </div>
                     )
                 })

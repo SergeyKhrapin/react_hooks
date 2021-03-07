@@ -1,6 +1,7 @@
 import {useState, useMemo} from 'react'
+import { HookName } from '../../types/types'
 
-function computeValue(num) {
+function computeValue(num: number) {
     let i = 0
     while (i < 1000000000) {
         i++
@@ -8,9 +9,9 @@ function computeValue(num) {
     return num * 2
 }
 
-function ComputeValue() {
-    const [value, setValue] = useState(1)
-    const [isColored, setColor] = useState(false)
+function ComputeValue(props: HookName) {
+    const [ value, setValue ] = useState<number>(1)
+    const [ isColored, setColor ] = useState<boolean>(false)
 
     const styles = {
         color: isColored ? 'crimson' : 'black'

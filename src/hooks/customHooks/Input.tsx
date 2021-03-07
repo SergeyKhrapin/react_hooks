@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
+import { HookName } from '../../types/types'
 
 // Custom hook 1
 function useLogger(value: string) {
@@ -9,9 +10,9 @@ function useLogger(value: string) {
 
 // Custom hook 2
 function useInput(initialValue: string) {
-    const [value, setValue] = useState(initialValue)
+    const [ value, setValue ] = useState(initialValue)
 
-    const onChange = e => setValue(e.target.value)
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
 
     const clear = () => setValue('')
 
@@ -22,7 +23,7 @@ function useInput(initialValue: string) {
     }
 }
 
-function Input() {
+function Input(props: HookName) {
     const { input: firstNameInput, value: firstNameValue, clear: firstNameClear } = useInput('')
     const { input: lastNameInput, value: lastNameValue, clear: lastNameClear } = useInput('')
 
