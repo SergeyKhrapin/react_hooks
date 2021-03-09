@@ -1,4 +1,5 @@
 import MainContainer from './MainContainer'
+import Count from './hooks/useState/Count'
 import ShowPreviousValue from './hooks/useRef/ShowPreviousValue'
 import FocusElement from './hooks/useRef/FocusElement'
 import ComputeValue from './hooks/useMemo/ComputeValue'
@@ -14,6 +15,7 @@ function ReactHooks() {
     return (
         <>
             <MainContainer>
+                <Count hookName='useState' />
                 <ShowPreviousValue hookName='useRef 1' />
                 <FocusElement hookName='useRef 2' />
                 <ComputeValue hookName='useMemo' />
