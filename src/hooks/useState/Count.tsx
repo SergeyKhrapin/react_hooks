@@ -7,7 +7,9 @@ import { HookName } from '../../types/types'
 // In this case when state is updated - all fields should be passed in to updater (setCount).
 // Otherwise, field will be removed from the state object.
 // 3. Good practice = pass in a callback rather than a new state value to updater (setCount).
-// 4. Multiple states are allowed, i.e. useState can be called multiple times in one component
+// First of all, this makes us sure we really deal with a current state.
+// Moreover, using a callback we do not need access to a state variable in the current component.
+// 4. Multiple states are allowed, i.e. useState can be called multiple times in one component.
 
 const Count: FC<HookName> = () => {
     // const [ count, setCount ] = useState<number>(initState())    // Bad practice
