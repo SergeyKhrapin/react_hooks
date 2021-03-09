@@ -8,6 +8,7 @@ import ShowAlert from './hooks/useContext/ShowAlert'
 import Counter from './hooks/useReducer/Counter'
 import Input from './hooks/customHooks/Input'
 import Toggle from './hooks/customHooks/Toggle'
+import Login from './hooks/customHooks/login/Login'
 import * as Memo from './preventRerendering/functionalComponent'
 import * as Pure from './preventRerendering/classComponent'
 import RenderProps from './renderProps/Counter'
@@ -24,8 +25,9 @@ function ReactHooks() {
                 <ShowAlert hookName='useContext' />
                 <Counter hookName='useReducer 1' />
                 <Counter hookName='useReducer 2' />
-                <Input hookName='Custom Hook' />
-                <Toggle hookName='Custom Hooks' />
+                <Input hookName='Custom Hook 1' />
+                <Toggle hookName='Custom Hook 2' />
+                <Login hookName='Custom Hook 3' />
             </MainContainer>
             <div className="extra-container container">
                 <div className="row m-5">
