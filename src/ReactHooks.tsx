@@ -10,6 +10,7 @@ import Input from './hooks/customHooks/Input'
 import Toggle from './hooks/customHooks/Toggle'
 import * as Memo from './preventRerendering/functionalComponent'
 import * as Pure from './preventRerendering/classComponent'
+import RenderProps from './renderProps/Counter'
 
 function ReactHooks() {
     return (
@@ -34,6 +35,14 @@ function ReactHooks() {
                 </div>
                 <Memo.Parent />
                 <Pure.Parent />
+            </div>
+            <div className="extra-container container">
+                <div className="row m-5">
+                    <div className="col-12">
+                        <h1 className="text-center">Render Props</h1>
+                    </div>
+                </div>
+                <RenderProps />
             </div>
         </>
     )
