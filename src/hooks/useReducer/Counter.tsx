@@ -1,5 +1,6 @@
 import { useReducer, FC } from 'react'
-import { Action, HookName } from '../../types/types'
+import { HookName } from '../../types/types'
+import { Action } from '../../interfaces/interface'
 
 const initialState = { number: 0 }
 

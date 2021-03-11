@@ -1,5 +1,6 @@
 import React, { useReducer, FC, MouseEventHandler } from 'react'
-import { Action, HookName } from '../../types/types'
+import { HookName } from '../../types/types'
+import { Action } from '../../interfaces/interface'
 
 function useToggle() {
     const TOGGLE = 'TOGGLE'
