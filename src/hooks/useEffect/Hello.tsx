@@ -6,10 +6,17 @@ type Props = {
 
 const Hello: FC<Props> = ({ name }) => {
     useEffect(() => {
-        console.log('Hello render') // It is called when Hello component is rendered from Form component for the first time
+        const onMouseMove = (e: any) => {
+            console.log(e)
+        }
 
+        window.addEventListener('mousemove', onMouseMove)
+        
+        console.log('Hello render') // It is called when Hello component is rendered from Form component for the first time
+        
         return () => {
             console.log('Hello unmount') // It is called when Hello component is NOT rendered from Form component for the first time
+            window.removeEventListener('mousemove', onMouseMove)
         }
     }, [])
 
