@@ -9,7 +9,7 @@ function useLogger(value: string) {
 }
 
 // Custom hook 2
-function useInput(initialValue: string) {
+export function useInput(initialValue: string) {
     const [ value, setValue ] = useState(initialValue)
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
