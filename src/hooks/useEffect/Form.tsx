@@ -9,11 +9,13 @@ const Form: FC<HookName> = () => {
     const { input: password } = useInput('')
 
     useEffect(() => {
-        console.log('Form render') // It is called SECOND whenever firstName changes
+      // It is called SECOND whenever firstName changes or when Form component mounts
+      // console.log('firstName changed or Form mounted')
 
-        return () => {
-            console.log('Form unmount') // It is called FIRST whenever firstName changes
-        }
+      return () => {
+        // It is called FIRST whenever firstName changes or when Form component unmounts
+        // console.log('Cleanup effect - firstName changed or Form unmounted')
+      }
     }, [firstName.value])
 
     return (

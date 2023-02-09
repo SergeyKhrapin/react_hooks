@@ -13,13 +13,21 @@ import Login from './hooks/customHooks/login/Login'
 import * as Memo from './preventRerendering/functionalComponent'
 import * as Pure from './preventRerendering/classComponent'
 import RenderProps from './renderProps/Counter'
+import {useState, useMemo} from 'react'
+import Fetch from './hooks/useEffect/Fetch'
 
 function ReactHooks() {
+  const [counter, setCounter] = useState(0)
+
     return (
         <>
             <MainContainer>
+              <div>Parent counter - {counter}</div>
+              <button onClick={() => setCounter(val => ++val)}>+</button>
+              <button onClick={() => setCounter(val => --val)}>-</button>
                 <Count hookName='useState' />
                 <Form hookName='useEffect' />
+                <Fetch hookName='useEffect' />
                 <ShowPreviousValue hookName='useRef 1' />
                 <FocusElement hookName='useRef 2' />
                 <ComputeValue hookName='useMemo' />

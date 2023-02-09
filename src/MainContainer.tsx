@@ -15,7 +15,7 @@ const MainContainer = ({ children }: Props) => {
             {
                 // TODO: fix any type
                 children.map((el: any) => {    
-                    const hookName = el?.props.hookName
+                    const hookName = el?.props?.hookName
                     const className = `row mb-4 hook-${hookName}`
                     return (
                         <div className={className} key={hookName}>
