@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import { useState, useEffect, useRef, FC } from "react";
 import { HookName } from "../../types/types";
 
 interface IUseFetch {
@@ -7,11 +7,18 @@ interface IUseFetch {
   data: string;
 }
 
-const useFetch = (): IUseFetch => {  
+const useFetch = (val: string): IUseFetch => {  
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  async function fetchData(val: string) {    
+  const timeoutId = useRef<any>(0);
+
+  useEffect(() => {    
+    clearTimeout(timeoutId.current);
+    timeoutId.current = setTimeout(fetchData, 1000);
+  }, [val]);
+
+  async function fetchData() {
     if (val === "") {
       return;
     }
@@ -32,22 +39,24 @@ const useFetch = (): IUseFetch => {
   };
 };
 
-const Fetch: FC<HookName> = () => {  
+const Fetch: FC<HookName> = () => {    
   const [count, setCount] = useState("");
-  const {fetchData, data, isLoading} = useFetch();
+  const {fetchData, data, isLoading} = useFetch(count);
 
   return (
     <div className="row">
       <div className="col-4">
         <h6>Fetch data</h6>
-        <button className="btn btn-success me-2" onClick={() => fetchData(count)}>Fetch</button>
         <div className="input-group mb-3">
-          <input type="number" onChange={(e) => setCount(e.target.value)} className="form-control" placeholder="enter some number to push data for" />
+          <input
+            type="number"
+            onChange={(e) => setCount(e.target.value)}
+            className="form-control"
+            placeholder="enter some number to push data for"
+          />
         </div>
       </div>
-      <div className="col-8">
-        <span>Fetched data - {isLoading ? "loading ..." : data}</span>
-      </div>
+      <span>Fetched data - {isLoading ? "loading ..." : data}</span>
     </div>
   );
 };
