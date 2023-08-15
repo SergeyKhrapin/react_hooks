@@ -1,5 +1,6 @@
 import { useState, FC } from "react";
 import { HookName } from "../../types/types";
+import Country from "./FetchThenRender/Country"
 
 // Key points:
 
@@ -17,6 +18,8 @@ import { HookName } from "../../types/types";
 // 4. As mentioned above - multiple states are allowed, i.e. useState can be called multiple times in one component.
 
 const Count: FC<HookName> = () => {
+  console.log("Count");
+  
   //   const [count, setCount] = useState<number>(initState()); // Bad practice
   const [count, setCount] = useState<number>(() => initState()); // * Good practice
 
@@ -25,24 +28,33 @@ const Count: FC<HookName> = () => {
     return 0;
   }
 
-  function setCountAfterDelay() {
-    setTimeout(() => {
-      //   setCount(count + 1); // Bad practice
-      setCount((currentCount) => currentCount + 1); // ** Good practice
-    }, 1000);
-  }
-
   return (
     <div className="row">
       <div className="col-3">
         <span>Count {count}</span>
       </div>
       <div className="col-3">
-        <button className="btn btn-success me-2" onClick={setCountAfterDelay}>
+        <button className="btn btn-success me-2" onClick={() => setCount(count => ++count)}>
           +
         </button>
       </div>
+      {/*
+          ! A tricky usage of key prop !
+          Every time when key changes, state of Country component updates to the initial value (empty array) ***
+       */}
+      <Country key={count}>
+        <OtherComponent />
+      </Country>
     </div>
+  );
+};
+
+// When Country updates OtherComponent won't be rerendered because it is passed as children prop to parent component
+const OtherComponent = () => {
+  // console.log('OtherComponent');
+  
+  return (
+    <p>Some Other Component</p>
   );
 };
 

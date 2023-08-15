@@ -13,10 +13,10 @@ import Login from './hooks/customHooks/login/Login'
 import * as Memo from './preventRerendering/functionalComponent'
 import * as Pure from './preventRerendering/classComponent'
 import RenderProps from './renderProps/Counter'
-import {useState, useMemo} from 'react'
+import {useState} from 'react'
 import Fetch from './hooks/useEffect/Fetch'
 
-function ReactHooks() {
+function ReactHooks() {  
   const [counter, setCounter] = useState(0)
 
     return (

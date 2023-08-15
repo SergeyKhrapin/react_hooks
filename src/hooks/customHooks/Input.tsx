@@ -4,7 +4,7 @@ import { HookName } from '../../types/types'
 // Custom hook 1
 function useLogger(value: string) {
     React.useEffect(() => {
-        console.log(value)
+        // console.log(value)
     }, [value])
 }
 
