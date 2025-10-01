@@ -13,54 +13,26 @@ import Login from './hooks/customHooks/login/Login'
 import * as Memo from './preventRerendering/functionalComponent'
 import * as Pure from './preventRerendering/classComponent'
 import RenderProps from './renderProps/Counter'
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useState } from 'react'
 import Fetch from './hooks/useEffect/Fetch'
 
 function ReactHooks() {
 	console.log('ReactHooks render >>>>>');
 
 	const [counter, setCounter] = useState(0)
-	const prevCounter = useRef(null)
-
-	// const arr = [10, 2, 5, 15, 20, 1, 33];
-
-	// const sort = (arr) => {
-	// 	const arrayOfArraysWithTwoNumbers = [];
-
-	// 	const divideArrayInHalf = (arr: number[]) => {
-	// 		if (arr.length === 1) {
-	// 			return arr;
-	// 		}
-	// 		const firstHalf = arr.slice(0, arr.length/2);
-	// 		const secondHalf = arr.slice(arr.length/2);
-
-
-	// 	};
-
-	// };
 
 	const increaseCounter = () => {
-		setCounter(val => {
-			prevCounter.current = val + 1
-			return ++val
-		})		
+		setCounter(val => ++val)		
 	}
 
 	const decreaseCounter = () => {
 		setCounter(val => --val)
-		prevCounter.current = counter
 	}
 
 	return (
 		<>
 			<MainContainer>
 				<div>Parent counter - {counter}</div>
-				{prevCounter.current !== null || counter ?
-					<span>Counter has been {counter > prevCounter.current ? 'increased' : 'decreased'}</span> :
-					null}
-				<div>
-					<script>console.log(666)</script>
-				</div>
 				<button onClick={increaseCounter}>+</button>
 				<button onClick={decreaseCounter}>-</button>
 				<Count hookName='useState' />
