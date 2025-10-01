@@ -2,10 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import ReactHooks from './ReactHooks'
+import { createRoot } from "react-dom/client"
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
     <ReactHooks />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 )
